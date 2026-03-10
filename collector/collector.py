@@ -1,6 +1,7 @@
 import yfinance as yf
 import pandas as pd
 from datetime import datetime, timezone
+from google.cloud import bigquery
 
 TICKERS = [
     # IBEX 35
@@ -38,3 +39,20 @@ if __name__ == "__main__":
     df = download_data(TICKERS)
     print(f"Descarga completada. {len(df)} filas descargadas.")
     print(df.head())
+    # Conexión con BigQuery
+    client = bigquery.Client.from_service_account_json("gcloud-key.json")
+    
+    # Destino de los datos
+    table_id = "fintrack-daas.raw.stock_prices"
+    
+    # Configuración de la carga
+    job_config = bigquery.LoadJobConfig(
+        write_disposition="WRITE_APPEND",
+        autodetect=True,
+    )
+    
+    # Carga de datos
+    print("Subiendo datos a BigQuery...")
+    job = client.load_table_from_dataframe(df, table_id, job_config=job_config)
+    job.result()
+    print(f"✅ {len(df)} filas cargadas en BigQuery")
