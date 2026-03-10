@@ -28,7 +28,7 @@ Yahoo Finance → Python → BigQuery (Raw) → dbt → Streamlit
 | Phase | Status |
 |-------|--------|
 | Phase 1 — Data collector | ✅ Done |
-| Phase 2 — BigQuery setup | 🔄 In progress |
+| Phase 2 — BigQuery setup | ✅ Done |
 | Phase 3 — dbt transforms | ⏳ Pending |
 | Phase 4 — Streamlit dashboard | ⏳ Pending |
 
