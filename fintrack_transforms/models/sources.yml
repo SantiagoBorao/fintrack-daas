@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: raw
+    project: fintrack-daas
+    dataset: raw
+    tables:
+      - name: stock_prices
