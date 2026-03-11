@@ -113,6 +113,6 @@ alerts = df[df["flag_volume_alert"] == True][
 ].sort_values("price_date", ascending=False)
 
 if len(alerts) > 0:
-    st.dataframe(alerts, width='stretch')
+    st.dataframe(alerts, use_container_width=True)
 else:
     st.info("No volume alerts found for this ticker.")
