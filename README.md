@@ -1,3 +1,7 @@
+[![Daily Collector](https://github.com/SantiagoBorao/fintrack-daas/actions/workflows/daily_collector.yml/badge.svg)](https://github.com/SantiagoBorao/fintrack-daas/actions)
+
+🚀 **[Live Demo](https://santiagoborao-fintrack-daas.streamlit.app)**
+
 # FinTrack — Volume Anomaly Detection Pipeline
 
 I'm a computer engineer transitioning into Data Engineering with a 
