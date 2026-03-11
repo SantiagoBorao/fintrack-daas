@@ -47,7 +47,7 @@ if __name__ == "__main__":
     
     # Configuración de la carga
     job_config = bigquery.LoadJobConfig(
-        write_disposition="WRITE_APPEND",
+        write_disposition="WRITE_TRUNCATE",
         autodetect=True,
     )
     
