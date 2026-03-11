@@ -2,6 +2,8 @@ import streamlit as st
 from google.cloud import bigquery
 import plotly.graph_objects as go
 import pandas as pd
+import os
+from google.oauth2 import service_account
 
 st.set_page_config(
     page_title="FinTrack DaaS",
@@ -14,7 +16,15 @@ st.markdown("Real-time alerts for volume anomalies and moving average signals ac
 
 @st.cache_resource
 def get_client():
-    return bigquery.Client.from_service_account_json("gcloud-key.json")
+    if os.path.exists("gcloud-key.json"):
+        return bigquery.Client.from_service_account_json("gcloud-key.json")
+    else:
+        credentials_dict = st.secrets["gcloud_key"]
+        credentials = service_account.Credentials.from_service_account_info(
+            credentials_dict,
+            scopes=["https://www.googleapis.com/auth/bigquery"]
+        )
+        return bigquery.Client(credentials=credentials, project="fintrack-daas")
 
 @st.cache_data
 def load_tickers():
