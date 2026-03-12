@@ -4,8 +4,8 @@
 
 # FinTrack — Volume Anomaly Detection Pipeline
 
-I'm a computer engineer transitioning into Data Engineering with a 
-growing interest in financial markets. I'm currently studying technical 
+I'm a computer engineer with a deep interest in both data engineering 
+and financial markets. I'm currently studying technical 
 analysis and professional trading, and I built this project because I 
 wanted to understand how institutional investors detect unusual market 
 activity and whether I could replicate that logic with open source tools.
